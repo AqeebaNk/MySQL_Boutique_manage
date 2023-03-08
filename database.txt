@@ -1,0 +1,101 @@
+------------------
+Creating Database|
+------------------
+
+mysql> create database boutique;
+Query OK, 1 row affected (0.51 sec)
+
+mysql> use boutique;
+Database changed
+
+
+
+
+
+
+
+----------------
+Creating Tables|
+----------------
+
+mysql> create table customer (cust_id int(8) PRIMARY KEY,c_nam varchar(30),c_lnam varchar(30),c_phno varchar(10),c_adrs varchar(50),
+       bkd_pro varchar(40) );
+
+Query OK, 0 rows affected, 1 warning (2.27 sec)
+
+mysql> desc customer;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| cust_id | int         | NO   | PRI | NULL    |       |
+| c_nam   | varchar(30) | YES  |     | NULL    |       |
+| c_lnam  | varchar(30) | YES  |     | NULL    |       |
+| c_phno  | varchar(10) | YES  |     | NULL    |       |
+| c_adrs  | varchar(50) | YES  |     | NULL    |       |
+| bkd_pro | varchar(40) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.11 sec)
+
+mysql> create table employee (emp_id char(3),e_nam varchar(30),e_lnam varchar(30),e_phone int,e_address varchar(30));
+Query OK, 0 rows affected (1.74 sec)
+
+mysql> desc employee;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| emp_id    | char(3)     | YES  |     | NULL    |       |
+| e_nam     | varchar(30) | YES  |     | NULL    |       |
+| e_lnam    | varchar(30) | YES  |     | NULL    |       |
+| e_phone   | int         | YES  |     | NULL    |       |
+| e_address | varchar(30) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+mysql> create table product(pro_num char(3),pro_id char(10) PRIMARY KEY,pro_price int(6),pro_stock int(5));
+Query OK, 0 rows affected, 2 warnings (1.34 sec)
+
+mysql> desc product;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| pro_num   | char(3)  | YES  |     | NULL    |       |
+| pro_id    | char(10) | NO   | PRI | NULL    |       |
+| pro_price | int      | YES  |     | NULL    |       |
+| pro_stock | int      | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+
+
+
+
+------------------------------------
+Inserting he values into the Tables|
+------------------------------------
+
+mysql> INSERT INTO product VALUES('1','A100',342,34),('2','A102',245,72),('3','A103',123,84),('4','A104',245,64),('5','A105',647,24);
+Query OK, 5 rows affected (0.22 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from product;
++---------+--------+-----------+-----------+
+| pro_num | pro_id | pro_price | pro_stock |
++---------+--------+-----------+-----------+
+| 1       | A100   |       342 |        34 |
+| 2       | A102   |       245 |        72 |
+| 3       | A103   |       123 |        84 |
+| 4       | A104   |       245 |        64 |
+| 5       | A105   |       647 |        24 |
++---------+--------+-----------+-----------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
